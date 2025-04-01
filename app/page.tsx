@@ -27,24 +27,39 @@ export default function Home() {
     setTimeout(() => setShowToast(false), 3000)
   }
 
-  const connectWallet = async () => {
-    if (window?.ethereum) {
-      setIsLoading(true)
-      try {
-        const result = await window?.ethereum.request({ method: "eth_requestAccounts" })
-        setUserAddress(result[0])
-        setWalletConnected(true)
-        displayToast("Wallet connected successfully!")
-      } catch (error) {
-        displayToast("Failed to connect wallet")
-      } finally {
-        setIsLoading(false)
-      }
-    } else {
-      displayToast("MetaMask not installed")
+  // const connectWallet = async () => {
+  //   if (window?.ethereum) {
+  //     setIsLoading(true)
+  //     try {
+  //       const result = await window?.ethereum.request({ method: "eth_requestAccounts" })
+  //       setUserAddress(result[0])
+  //       setWalletConnected(true)
+  //       displayToast("Wallet connected successfully!")
+  //     } catch (error) {
+  //       displayToast("Failed to connect wallet")
+  //     } finally {
+  //       setIsLoading(false)
+  //     }
+  //   } else {
+  //     displayToast("MetaMask not installed")
+  //   }
+  // }
+
+const connectWallet = async () => {
+  if (window?.ethereum) {
+    setIsLoading(true);
+    try {
+      const result = await window.ethereum.requestAccounts();
+      // Other code here
+    } catch (error) {
+      console.error(error);
     }
   }
+};
 
+
+
+  
   const getCoffeeBalance = async () => {
     if (!customerAddress) {
       displayToast("Please enter an address")
