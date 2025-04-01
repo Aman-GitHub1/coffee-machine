@@ -19,7 +19,7 @@ export default function Home() {
     "function getCoffeeBalanceFor(address user_address) external view returns (uint256)",
   ]
 
-  const contractAddress = "0x5cEfC47e6d2fE499CB808B29D8FB96140E63a905"
+  const contractAddress = "0xeeafA8E6c6E2b7890f26737862ec217E3743E9Fd"
 
   const displayToast = (message: any) => {
     setToastMessage(message)
